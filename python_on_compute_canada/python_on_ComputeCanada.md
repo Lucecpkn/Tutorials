@@ -114,7 +114,7 @@ The output in terminal is expected to include the infomation like this:
 The Jupyter Notebook is running at:
         https://gra798.graham.sharcnet:8888/?token=7ed7059fad64446f837567e3
 ```
-This address contains the server name and port where the Jupyter running on (`hostname`: "_blg9322.int.ets1.calculquebec.ca_", `port number`: "_8888_"), and the token to for security verification.
+This address contains the server name and port where the Jupyter running on (`hostname`: "_gra798.graham.sharcnet_", `port number`: "_8888_"), and the `token` for security verification.
 
 Now, on our local computer (say Windows PC), we need to use **SSH tunnel to forward** the running Jupyter server. Open a local tab in your SSH software (e.g. MobaXterm), and run:
 ```
