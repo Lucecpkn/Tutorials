@@ -23,7 +23,7 @@ Now you can **Install the packages** you need, for example:
 pip install pandas
 ```
 You may need a list of varioius packages for your project, for which you can use a `requirements.txt` file and install from it using: `pip install -r requirements.txt`.  
-For more info check the [official document on venv](https://docs.python.org/3/tutorial/venv.html).
+For more info check the [official documentation on venv](https://docs.python.org/3/tutorial/venv.html).
 
 ## Set up Jupyter (optional)
 To use Jupyter notebook or lab, we need to install and setup the environment.
@@ -79,7 +79,7 @@ sbatch run_python.sh
 
 ## Parallel jobs (advanced)
 In some cases, we need to run a program with different coefficients. E.g. when tuning the hyperparameters of a machine learning model. Sequential execution might be too time consuming.   
-Besides using parallel computing inside our Python program, we can  the `array jobs` to multiplicate the program with different input coefficients. Use the following command in `.sh` file:
+Besides using parallel computing inside our Python program, we can use the `array jobs` to multiplicate the program with different input coefficients. To do this, use the following command in `.sh` file:
 ```
 #!/bin/bash
 #SBATCH --account=def-caporos1
@@ -92,7 +92,7 @@ Besides using parallel computing inside our Python program, we can  the `array j
 
 python code_example_parallel.py $SLURM_ARRAY_TASK_ID
 ```
-Notice that we add a `--array=1-10` option, which means we multiplicate the program 10 times with different input coefficient = [1, 2, ..., 10], which is denoted in the system as the variable of name `$SLURM_ARRAY_TASK_ID`.
+Note that we add an `--array=1-10` option. It tells the scheduler to multiplicate the program 10 times with different input coefficient = [1, 2, ..., 10], which is denoted in the system as the variable of name `$SLURM_ARRAY_TASK_ID`.
 
 In the `.py` file we should also add a few lines to accept the input variable:
 ```
@@ -100,7 +100,7 @@ import sys  # to get system variables
 
 coeff = int(sys.argv[1])
 ```
-This tell the program to get the value of the input variable `$SLURM_ARRAY_TASK_ID`.
+This tell the program to get the value of the input variable `$SLURM_ARRAY_TASK_ID`, and store it in the python variable `coeff`.
 
 
 ## Run Jupyter notebook (optional)
@@ -109,7 +109,7 @@ We need an **_interactive job_** (using `salloc` command) to run the Jupyter not
 salloc --time=1:0:0 --ntasks=1 --cpus-per-task=2 --mem-per-cpu=4G --account=def-yourPI srun $VIRTUAL_ENV/bin/notebook.sh
 ```
 
-We are expected to see the output to include the info like below:
+The output in terminal is expected to include the infomation like this:
 ```
 The Jupyter Notebook is running at:
         https://gra798.graham.sharcnet:8888/?token=7ed7059fad64446f837567e3
@@ -130,9 +130,9 @@ Finally, we can open our browser and go to the address:
 ```
 http://localhost:8888/?token=<token>
 ```
-Substitute the `token` with the token from the previous output address (e.g. "_7ed7059fad64446f837567e3_").
+Substitute the `<token>` with the token from the previous output address (e.g. "_7ed7059fad64446f837567e3_").
 
-Voila!
+Voila! Happy coding!
 
 
 # Reference:  
