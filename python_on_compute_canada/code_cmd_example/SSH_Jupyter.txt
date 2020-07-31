@@ -1,0 +1,1 @@
+ ssh -L 8888:blg9322.int.ets1.calculquebec.ca:8888 lucecpkn@beluga.computecanada.ca
